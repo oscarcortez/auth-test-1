@@ -2,6 +2,170 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+input IntFilter {
+  equals: Int
+  gt: Int
+  gte: Int
+  in: [Int!]
+  lt: Int
+  lte: Int
+  not: NestedIntFilter
+  notIn: [Int!]
+}
+
+input NestedIntFilter {
+  equals: Int
+  gt: Int
+  gte: Int
+  in: [Int!]
+  lt: Int
+  lte: Int
+  not: NestedIntFilter
+  notIn: [Int!]
+}
+
+input NestedStringFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  not: NestedStringFilter
+  notIn: [String!]
+  startsWith: String
+}
+
+input NestedStringNullableFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  not: NestedStringNullableFilter
+  notIn: [String!]
+  startsWith: String
+}
+
+enum NullsOrder {
+  first
+  last
+}
+
 type Query {
   helloWorld: String!
+  users(cursor: UserWhereUniqueInput, distinct: [UserScalarFieldEnum!], orderBy: [UserOrderByWithRelationInput!], skip: Int, take: Int, where: UserWhereInput): [User!]!
+}
+
+enum QueryMode {
+  default
+  insensitive
+}
+
+enum SortOrder {
+  asc
+  desc
+}
+
+input SortOrderInput {
+  nulls: NullsOrder
+  sort: SortOrder!
+}
+
+input StringFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  mode: QueryMode
+  not: NestedStringFilter
+  notIn: [String!]
+  startsWith: String
+}
+
+input StringNullableFilter {
+  contains: String
+  endsWith: String
+  equals: String
+  gt: String
+  gte: String
+  in: [String!]
+  lt: String
+  lte: String
+  mode: QueryMode
+  not: NestedStringNullableFilter
+  notIn: [String!]
+  startsWith: String
+}
+
+type User {
+  email: String!
+  id: ID!
+  name: String
+}
+
+type UserAvgAggregate {
+  id: Float
+}
+
+type UserCountAggregate {
+  _all: Int!
+  email: Int!
+  id: Int!
+  name: Int!
+}
+
+type UserMaxAggregate {
+  email: String
+  id: Int
+  name: String
+}
+
+type UserMinAggregate {
+  email: String
+  id: Int
+  name: String
+}
+
+input UserOrderByWithRelationInput {
+  email: SortOrder
+  id: SortOrder
+  name: SortOrderInput
+}
+
+enum UserScalarFieldEnum {
+  email
+  id
+  name
+}
+
+type UserSumAggregate {
+  id: Int
+}
+
+input UserWhereInput {
+  AND: [UserWhereInput!]
+  NOT: [UserWhereInput!]
+  OR: [UserWhereInput!]
+  email: StringFilter
+  id: IntFilter
+  name: StringNullableFilter
+}
+
+input UserWhereUniqueInput {
+  AND: [UserWhereInput!]
+  NOT: [UserWhereInput!]
+  OR: [UserWhereInput!]
+  email: String
+  id: Int
+  name: StringNullableFilter
 }
